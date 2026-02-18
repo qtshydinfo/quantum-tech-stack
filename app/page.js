@@ -1,65 +1,143 @@
-import Image from "next/image";
+"use client";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation"; // ✅ Added
+import Services from "./components/Services";
+import Process from "./components/Process";
+import TrustedBy from "./components/TrustedBy";
+import CaseStudies from "./components/CaseStudies";
+import Testimonials from "./components/Testimonials";
+import Navbar from "./components/Navbar";
+import Stats from "./components/Stats";
+import { motion, AnimatePresence } from "framer-motion";
+import TechOrbit from "./components/TechOrbit";
+import AnimatedBackground from "./components/AnimatedBackground";
+import SectionWrapper from "./components/SectionWrapper";
+import Footer from "./components/Footer";
 
 export default function Home() {
+
+  const router = useRouter(); // ✅ Added
+
+  /* =========================
+     ROTATING TEXT
+  ==========================*/
+  const words = [
+    "MERN Stack",
+    "SaaS Platform",
+    "Enterprise Sys",
+    "Cloud System",
+    "DevOps System",
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const rotatingText = words[index];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Navbar />
+
+      {/* ===== Shared Animated Background Wrapper ===== */}
+      <div className="relative overflow-hidden text-white bg-black">
+
+        {/* 3D Animated Background */}
+        <AnimatedBackground />
+
+        {/* ================= HERO SECTION ================= */}
+        <section className="pt-24 pb-16 md:pt-32 md:pb-24 flex flex-col items-center text-center px-4 sm:px-6 relative z-10">
+
+          <div className="w-full max-w-7xl">
+
+            <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold leading-tight flex flex-col md:flex-row items-center justify-center md:whitespace-nowrap">
+
+              <span className="md:px-4 shrink-0">
+                We&nbsp;Build&nbsp;Scalable&nbsp;
+              </span>
+
+              <span className="relative inline-block w-[240px] sm:w-[300px] md:w-[420px] h-[40px] sm:h-[60px] md:h-[72px] shrink-0">
+
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={rotatingText}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4 }}
+                    className="absolute inset-0 flex items-center justify-center text-blue-400 whitespace-nowrap"
+                  >
+                    {rotatingText}
+                  </motion.span>
+                </AnimatePresence>
+
+              </span>
+
+              <span className="md:px-4 shrink-0">
+                &nbsp;Applications
+              </span>
+
+            </h1>
+
+            <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl mx-auto px-2">
+              Quantum Tech Stack helps startups and enterprises build secure,
+              high-performance web applications with modern technologies.
+            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+              <button onClick={() => router.push("/contact")} className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition w-full sm:w-auto">
+                Get Free Consultation
+              </button>
+
+              {/* ✅ Modified Only This Button */}
+              <button
+                onClick={() => router.push("/portfolio")}
+                className="px-6 py-3 border border-white text-white rounded-lg cursor-pointer hover:bg-white hover:text-black transition w-full sm:w-auto"
+              >
+                View Portfolio
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ================= TECHNOLOGIES SECTION ================= */}
+        <div className="relative z-10">
+          <TechOrbit />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+      </div>
+
+      {/* Remaining sections normal background */}
+      <SectionWrapper>
+        <Stats />
+      </SectionWrapper>
+
+      <SectionWrapper delay={0.1}>
+        <Services />
+      </SectionWrapper>
+
+      <SectionWrapper delay={0.2}>
+        <Process />
+      </SectionWrapper>
+
+      <SectionWrapper delay={0.3}>
+        <TrustedBy />
+      </SectionWrapper>
+
+      <SectionWrapper delay={0.4}>
+        <CaseStudies />
+      </SectionWrapper>
+
+      <SectionWrapper delay={0.5}>
+        <Testimonials />
+      </SectionWrapper>
+    </>
   );
 }
