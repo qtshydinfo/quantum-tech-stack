@@ -11,7 +11,14 @@ export const metadata = {
   description:
     "Quantum Tech Stack is a modern MERN stack development company building scalable SaaS platforms and enterprise applications.",
   icons: {
-    icon: "/icon.png",
+    icon: [
+      {
+        url: "/icon.png?v=3",   // version added to force refresh
+        type: "image/png",
+      },
+    ],
+    shortcut: "/icon.png?v=3",
+    apple: "/icon.png?v=3",
   },
 };
 
