@@ -68,7 +68,7 @@ export default function EliteContact() {
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-5xl md:text-6xl font-bold mb-6"
+            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500 bg-clip-text text-transparent"
           >
             Get In Touch With Us
           </motion.h1>
@@ -107,7 +107,7 @@ Phone: +91 98765 43210`}
         {/* Contact Form Section */}
         <section className="max-w-3xl mx-auto bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-12 shadow-2xl">
 
-          <h2 className="text-3xl font-semibold mb-10 text-center">
+          <h2 className="text-3xl font-semibold mb-10 text-center bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
             Send Us A Message
           </h2>
 
@@ -157,7 +157,6 @@ Phone: +91 98765 43210`}
               {loading ? "Sending..." : "Submit Inquiry"}
             </button>
 
-            {/* Status Message */}
             {status === "success" && (
               <p className="text-green-400 text-center mt-4">
                 ✅ Message sent successfully!
@@ -186,7 +185,9 @@ function InfoCard({ title, content }) {
       whileHover={{ scale: 1.05 }}
       className="bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-2xl shadow-lg whitespace-pre-line"
     >
-      <h3 className="text-xl font-semibold mb-4">{title}</h3>
+      <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
+        {title}
+      </h3>
       <p className="text-white/70">{content}</p>
     </motion.div>
   );

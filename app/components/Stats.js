@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 
 function Counter({ end, startAnimation }) {
   const [count, setCount] = useState(0);
@@ -34,17 +35,17 @@ export default function Stats() {
 
   const stats = [
     {
-      number: 120,
+      number: 37,
       label: "Projects Delivered",
       gradient: "from-purple-500 to-pink-500",
     },
     {
-      number: 50,
+      number: 19,
       label: "Happy Clients Worldwide",
       gradient: "from-blue-500 to-cyan-400",
     },
     {
-      number: 5,
+      number: 3,
       label: "Years of Industry Experience",
       gradient: "from-orange-400 to-red-500",
     },
@@ -140,9 +141,11 @@ export default function Stats() {
           </p>
 
           <div className="mt-8">
-            <button className="px-6 sm:px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition w-full sm:w-auto">
-              Start Your Project With Us
-            </button>
+            <Link href="/contact">
+  <button className="px-6 sm:px-8 py-3  cursor-pointer bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition w-full sm:w-auto">
+    Start Your Project With Us
+  </button>
+</Link>
           </div>
         </motion.div>
 

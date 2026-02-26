@@ -8,7 +8,6 @@ export default function Navbar() {
   const [showNav, setShowNav] = useState(true);
   const [lastScroll, setLastScroll] = useState(0);
   const [megaOpen, setMegaOpen] = useState(false);
-  const [dark, setDark] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -40,13 +39,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScroll]);
 
-  useEffect(() => {
-    if (dark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [dark]);
 
   return (
     <>
@@ -148,15 +140,6 @@ export default function Navbar() {
             >
              Careers
             </Link>
-
-
-            {/* Dark Mode Toggle */}
-            <button
-              onClick={() => setDark(!dark)}
-              className="ml-4 px-3 py-1 rounded-lg bg-gray-700 text-white hover:bg-gray-600 transition"
-            >
-              {dark ? "☀️" : "🌙"}
-            </button>
 
             {/* CTA */}
             <Link

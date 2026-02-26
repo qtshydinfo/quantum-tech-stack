@@ -16,11 +16,8 @@ import Footer from "./components/Footer";
 
 export default function Home() {
 
-  const router = useRouter(); // ✅ Added
+  const router = useRouter(); 
 
-  /* =========================
-     ROTATING TEXT
-  ==========================*/
   const words = [
     "MERN Stack",
     "SaaS Platform",
@@ -91,7 +88,7 @@ export default function Home() {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-              <button onClick={() => router.push("/contact")} className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition w-full sm:w-auto">
+              <button onClick={() => router.push("/contact")} className="px-6 py-3 cursor-pointer bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition w-full sm:w-auto">
                 Get Free Consultation
               </button>
 

@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { Mail, Phone, MapPin, Linkedin, Briefcase } from "lucide-react";
+
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300 px-8 py-16">
@@ -11,9 +14,11 @@ export default function Footer() {
           <p className="text-gray-400 mb-6 text-sm">
             Helping businesses scale with intelligent web solutions & modern tech.
           </p>
-          <button className="px-5 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-            Get in Touch
-          </button>
+          <Link href="/contact">
+            <button className="px-5 py-2 text-sm cursor-pointer bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+              Get in Touch
+            </button>
+          </Link>
         </div>
 
         {/* Services Links */}
@@ -22,10 +27,31 @@ export default function Footer() {
             Services
           </h3>
           <ul className="space-y-3 text-gray-400">
-            <li><a href="#services" className="hover:text-white text-sm">MERN Development</a></li>
-            <li><a href="#ai" className="hover:text-white text-sm">AI & Data</a></li>
-            <li><a href="#cloud" className="hover:text-white text-sm">Cloud & DevOps</a></li>
-            <li><a href="#design" className="hover:text-white text-sm">UI/UX Design</a></li>
+            <li>
+              <a href="#services" className="hover:text-white text-sm">
+                SaaS Product Development
+              </a>
+            </li>
+            <li>
+              <a href="#ai" className="hover:text-white text-sm">
+                Full Stack Web Applications
+              </a>
+            </li>
+            <li>
+              <a href="#cloud" className="hover:text-white text-sm">
+                Cloud & DevOps Engineering
+              </a>
+            </li>
+            <li>
+              <a href="#design" className="hover:text-white text-sm">
+                UI/UX Design
+              </a>
+            </li>
+            <li>
+              <a href="#design" className="hover:text-white text-sm">
+                AI Automation
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -35,10 +61,26 @@ export default function Footer() {
             Company
           </h3>
           <ul className="space-y-3 text-gray-400">
-            <li><a href="/about" className="hover:text-white text-sm">About Us</a></li>
-            <li><a href="/contact" className="hover:text-white text-sm">Contact</a></li>
-            <li><a href="/privacy" className="hover:text-white text-sm">Privacy Policy</a></li>
-            <li><a href="/terms" className="hover:text-white text-sm">Terms of Service</a></li>
+            <li>
+              <a href="/about" className="hover:text-white text-sm">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="/contact" className="hover:text-white text-sm">
+                Contact Us
+              </a>
+            </li>
+            <li>
+              <a href="/privacy" className="hover:text-white text-sm">
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="/terms" className="hover:text-white text-sm">
+                Terms of Service
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -47,15 +89,44 @@ export default function Footer() {
           <h3 className="text-lg font-semibold text-white mb-4">
             Contact
           </h3>
-          <p className="text-sm">info@quantumtechstack.com</p>
-          <p className="text-sm">+91 98765 43210</p>
-          <p className="mt-3 text-sm">Hitech City, Madhapur, Hyderabad, India</p>
 
-          {/* Social Icons (example) */}
-          <div className="flex gap-4 mt-4 text-gray-400">
-            <a href="#" className="hover:text-white">LinkedIn</a>
-            <a href="#" className="hover:text-white">Twitter</a>
-            <a href="#" className="hover:text-white">GitHub</a>
+          <div className="flex items-center gap-2 text-sm mb-2">
+            <Mail size={16} className="text-blue-400" />
+            <span>info@quantumtechstack.com</span>
+          </div>
+
+          <div className="flex items-center gap-2 text-sm mb-2">
+            <Phone size={16} className="text-blue-400" />
+            <span>+91 98765 43210</span>
+          </div>
+
+          <div className="flex items-start gap-2 text-sm mt-3">
+            <MapPin size={16} className="text-blue-400 mt-1" />
+            <span>
+              Hitech City, Madhapur,<br />
+              Hyderabad, India
+            </span>
+          </div>
+
+          {/* Social Icons */}
+          <div className="flex gap-4 mt-5 text-gray-400">
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-500 transition"
+            >
+              <Linkedin size={18} />
+            </a>
+
+            <a
+              href="https://www.naukri.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-500 transition"
+            >
+              <Briefcase size={18} />
+            </a>
           </div>
         </div>
 
