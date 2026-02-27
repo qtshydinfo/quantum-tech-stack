@@ -173,12 +173,7 @@ export default function Navbar() {
               Contact
             </Link>
 
-            <button
-              onClick={() => setDark(!dark)}
-              className="mt-4 px-3 py-1 rounded-lg bg-gray-700 text-white"
-            >
-              {dark ? "☀️ Light Mode" : "🌙 Dark Mode"}
-            </button>
+      
           </div>
         )}
       </nav>
