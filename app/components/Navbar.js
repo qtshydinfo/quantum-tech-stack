@@ -34,11 +34,10 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // update immediately
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScroll]);
-
 
   return (
     <>
@@ -62,15 +61,12 @@ export default function Navbar() {
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-2">
             <h1 className="text-xl md:text-2xl tracking-wide relative group">
-  <span className="bg-gradient-to-r from-gray-200 via-blue-400 to-indigo-600 bg-clip-text text-transparent"
->
-    Quantum Tech Stack
-  </span>
+              <span className="bg-gradient-to-r from-gray-200 via-blue-400 to-indigo-600 bg-clip-text text-transparent">
+                Quantum Tech Stack
+              </span>
 
-  {/* Shine animation layer */}
-  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 animate-shine pointer-events-none"></span>
-</h1>
-
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 animate-shine pointer-events-none"></span>
+            </h1>
           </Link>
 
           {/* DESKTOP MENU */}
@@ -134,11 +130,9 @@ export default function Navbar() {
             <Link href="/contact" className="hover:text-blue-400 transition">
               Contact
             </Link>
-            <Link
-                 href="/careers"
-                 className="hover:text-blue-400 transition"
-            >
-             Careers
+
+            <Link href="/careers" className="hover:text-blue-400 transition">
+              Careers
             </Link>
 
             {/* CTA */}
@@ -163,17 +157,33 @@ export default function Navbar() {
         {/* MOBILE MENU */}
         {mobileOpen && (
           <div className="md:hidden bg-black/95 backdrop-blur-xl border-t border-white/10 px-6 py-6 space-y-4 text-white">
+
             <Link href="/" onClick={() => setMobileOpen(false)} className="block">
               Home
             </Link>
+
             <Link href="/about" onClick={() => setMobileOpen(false)} className="block">
               About
             </Link>
+
             <Link href="/contact" onClick={() => setMobileOpen(false)} className="block">
               Contact
             </Link>
 
-      
+            {/* ADDED CAREERS */}
+            <Link href="/careers" onClick={() => setMobileOpen(false)} className="block">
+              Careers
+            </Link>
+
+            {/* ADDED GET QUOTE */}
+            <Link
+              href="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="block bg-blue-600 text-center py-2 rounded-lg"
+            >
+              Get Quote
+            </Link>
+
           </div>
         )}
       </nav>

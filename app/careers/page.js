@@ -8,8 +8,9 @@ import confetti from "canvas-confetti";
 export default function Careers() {
   const [open, setOpen] = useState(false);
 
-  // 🔗 Replace with your Microsoft Form link
-  const formLink = "https://forms.gle/THHxP5Wov7LukDSi7";
+  // ✅ USE EMBED LINK (NOT forms.gle)
+  const formLink =
+    "https://docs.google.com/forms/d/1I2i67hd7rx7KjHrPulhqHvxxHV1-yi-PKG-smYixpI0/edit?pli=1#responses";
 
   const handleClose = () => {
     setOpen(false);
@@ -27,7 +28,7 @@ export default function Careers() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-950 to-black text-white">
-
+      
       {/* HERO */}
       <section className="pt-32 pb-20 px-6 text-center">
         <motion.h1
@@ -94,26 +95,30 @@ export default function Careers() {
               transition={{ duration: 0.3 }}
               className="bg-white rounded-2xl w-full max-w-4xl relative overflow-hidden shadow-2xl"
             >
+              {/* HEADER */}
               <div className="flex justify-between items-center p-4 border-b">
                 <h3 className="text-black font-semibold">
                   Apply for MERN Stack Developer
                 </h3>
 
                 <button
-                  onClick={handleClose}
+                  onClick={() => setOpen(false)}
                   className="text-black text-xl font-bold"
                 >
                   ✕
                 </button>
               </div>
 
+              {/* GOOGLE FORM IFRAME */}
               <iframe
                 src={formLink}
                 width="100%"
-                height="600"
+                height="650"
                 className="border-none"
+                loading="lazy"
               ></iframe>
 
+              {/* CONFIRM BUTTON */}
               <div className="p-4 text-center">
                 <button
                   onClick={handleClose}
@@ -126,7 +131,6 @@ export default function Careers() {
           </motion.div>
         )}
       </AnimatePresence>
-
     </div>
   );
 }
