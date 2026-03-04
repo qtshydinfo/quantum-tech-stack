@@ -95,10 +95,6 @@ export default function Footer() {
     <span>info@quantumtechstack.com</span>
   </div>
 
-  <div className="flex items-center gap-2 text-sm mb-2">
-    <Phone size={16} className="text-blue-400" />
-    <span>+91 98765 43210</span>
-  </div>
           <div className="flex items-start gap-2 text-sm mt-3">
     <MapPin size={16} className="text-blue-400 mt-1" />
     <span>

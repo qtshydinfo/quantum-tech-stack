@@ -22,19 +22,31 @@ export default function EliteContact() {
     });
   };
 
+  // ✅ UPDATED - No backend required
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setStatus(null);
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "https://formsubmit.co/ajax/info@quantumtechstack.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            company: formData.company,
+            message: formData.message,
+          }),
+        }
+      );
+
+      const data = await res.json();
 
       if (res.ok) {
         setStatus("success");
@@ -45,9 +57,12 @@ export default function EliteContact() {
           message: "",
         });
       } else {
+        console.error("Error:", data);
         setStatus("error");
       }
+
     } catch (error) {
+      console.error("Submission Error:", error);
       setStatus("error");
     }
 
@@ -92,8 +107,7 @@ Hyderabad, India`}
 
           <InfoCard
             title="Contact Details"
-            content={`Email: info@quantumtechstack.com
-Phone: +91 98765 43210`}
+            content={`Email: info@quantumtechstack.com`}
           />
 
           <InfoCard

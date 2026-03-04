@@ -115,9 +115,9 @@ export default function About() {
 
         {/* STATS */}
         <div className="grid md:grid-cols-3 gap-10 text-center mb-32">
-          <Stat number="37+" label="Projects Delivered" />
-          <Stat number="19+" label="Global Clients" />
-          <Stat number="3+" label="Years Experience" />
+          <Stat number="11+" label="Projects Delivered" />
+          <Stat number="6+" label="Global Clients" />
+          <Stat number="1+" label="Years Experience" />
         </div>
 
         {/* Vision */}

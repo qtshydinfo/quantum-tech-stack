@@ -102,7 +102,7 @@ our services after changes constitutes acceptance of the revised Terms.`}
               If you have questions regarding these Terms, contact us at:
             </p>
             <p className="text-indigo-400 font-semibold mt-2">
-              legal@quantumtechstack.com
+              info@quantumtechstack.com
             </p>
           </div>
 

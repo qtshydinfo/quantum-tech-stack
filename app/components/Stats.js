@@ -35,17 +35,17 @@ export default function Stats() {
 
   const stats = [
     {
-      number: 37,
+      number: 11,
       label: "Projects Delivered",
       gradient: "from-purple-500 to-pink-500",
     },
     {
-      number: 19,
+      number: 6,
       label: "Happy Clients Worldwide",
       gradient: "from-blue-500 to-cyan-400",
     },
     {
-      number: 3,
+      number: 1,
       label: "Years of Industry Experience",
       gradient: "from-orange-400 to-red-500",
     },

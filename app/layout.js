@@ -9,7 +9,7 @@ export const metadata = {
     template: "%s | Quantum Tech Stack",
   },
   description:
-    "Quantum Tech Stack is a modern MERN stack development company building scalable SaaS platforms and enterprise applications.",
+    "Quantum Tech Stack empowers startups and enterprises with secure, scalable MERN stack applications, custom SaaS platforms, and performance-driven web solutions built for growth.",
   icons: {
     icon: [
       {
